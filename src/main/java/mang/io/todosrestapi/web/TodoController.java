@@ -30,7 +30,7 @@ public class TodoController {
     }
 
     @GetMapping("/todo/{id}/status")
-    public ResponseEntity<String> getTodoStatusById(@PathVariable("id") Long id){
+    public ResponseEntity<String> getTodoStatusById(@PathVariable Long id){
         String str = todoService.retrieveTodoStatusById(id);
         return new ResponseEntity<String>(str, HttpStatus.OK);
     }
