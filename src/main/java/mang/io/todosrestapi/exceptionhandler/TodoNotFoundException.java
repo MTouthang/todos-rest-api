@@ -1,4 +1,4 @@
-package mang.io.todosrestapi.service;
+package mang.io.todosrestapi.exceptionhandler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

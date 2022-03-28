@@ -1,5 +1,7 @@
 package mang.io.todosrestapi.service;
 
+
+import mang.io.todosrestapi.exceptionhandler.TodoNotFoundException;
 import mang.io.todosrestapi.model.Todo;
 import mang.io.todosrestapi.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +29,10 @@ public class TodoServiceImp implements TodoService {
     @Override
     public String retrieveTodoStatusById(Long id) {
         Optional<String> optionalTodo = Optional.ofNullable(todoRepository.findStatusById(id));
+        System.out.println("OptionalTodo " +optionalTodo );
         return optionalTodo.orElseThrow(TodoNotFoundException::new);
-
     }
+
 
     @Override
     public List<String> retrieveTodoTitle() {
