@@ -1,5 +1,8 @@
 package mang.io.todosrestapi.web;
 
+
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import mang.io.todosrestapi.model.Todo;
 import mang.io.todosrestapi.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@ApiResponses(value = {
+        @ApiResponse(responseCode="400", description ="This is a bad request, please follow the API documentation for the proper request format." ),
+        @ApiResponse(responseCode = "401", description = "Due to security constraints, your access request cannot be authorized."),
+        @ApiResponse(responseCode = "500", description = "The server is down. Please make sure that the Location microservice is running.")
+})
 public class TodoController {
 
     @Autowired
